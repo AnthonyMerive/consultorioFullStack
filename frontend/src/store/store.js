@@ -5,7 +5,7 @@ import { citasReducer } from '../reducers/citasReducer'
 
 const reducers = combineReducers({
 
-   GET: citasReducer
+    citas: citasReducer
 
 })
 

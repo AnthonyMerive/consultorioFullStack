@@ -5,7 +5,7 @@ import { getAsync } from '../actions/citasAction';
 
 export const List = () => {
 
-    const rows = useSelector(store => store.GET.citas)
+    const rows = useSelector(store => store.citas.citasGET)
 
     const dispatch = useDispatch()
     useEffect(() => {

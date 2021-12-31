@@ -7,17 +7,15 @@ export const citasReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case citas.GET: {
             return {
-                ...state,
-                citas: action.payload
+                citasGET: action.payload
             }
         }
 
-        // case citas.POST: {
-        //     return {
-        //         ...state,
-        //         citas: action.payload
-        //     }
-        // }
+        case citas.POST: {
+            return {
+                citaPOST: action.payload
+            }
+        }
 
         // case citas.PUT: {
         //     return {
