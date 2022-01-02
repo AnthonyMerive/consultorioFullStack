@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { postAsync } from '../actions/citasAction';
 
+
 export const Form = () => {
 
     const dispatch = useDispatch()
@@ -57,8 +58,9 @@ export const Form = () => {
                 <Grid sx={{ marginTop: 2 }} container spacing={2}>
                     <Grid item xs={6}>
                         <TextField
+                            sx={{ width: 250 }}
                             id="nombreMedico"
-                            label="Nombre Medico"
+                            label="Nombres Medico"
                             variant="standard"
                             name="nombreMedico"
                             value={nombreMedico}
@@ -67,6 +69,7 @@ export const Form = () => {
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
+                            sx={{ width: 250 }}
                             id="apellidosMedico"
                             label="Apellidos Medico"
                             variant="standard"
@@ -79,8 +82,9 @@ export const Form = () => {
                 <Grid sx={{ marginTop: 2 }} container spacing={2}>
                     <Grid item xs={6}>
                         <TextField
+                            sx={{ width: 250 }}
                             id="nombrePaciente"
-                            label="Nombre Paciente"
+                            label="Nombres Paciente"
                             variant="standard"
                             name="nombrePaciente"
                             value={nombrePaciente}
@@ -89,6 +93,7 @@ export const Form = () => {
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
+                            sx={{ width: 250 }}
                             id="apellidosPaciente"
                             label="Apellidos Paciente"
                             variant="standard"
@@ -98,22 +103,34 @@ export const Form = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid sx={{ marginTop: 2 }} container spacing={2}>
+                <Grid sx={{ marginTop: 4 }} container spacing={2}>
                     <Grid item xs={6}>
                         <TextField
-                            id="fechaReservaCita"
+                            id="date"
                             label="Fecha Reserva"
-                            variant="standard"
+                            type="date"
+                            sx={{ width: 220 }}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             name="fechaReservaCita"
                             value={fechaReservaCita}
                             onChange={handleInputChange}
                         />
                     </Grid>
+
                     <Grid item xs={6}>
                         <TextField
-                            id="horaReservaCita"
+                            id="time"
                             label="Hora Reserva"
-                            variant="standard"
+                            type="time"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            inputProps={{
+                                step: 300,
+                            }}
+                            sx={{ width: 180 }}
                             name="horaReservaCita"
                             value={horaReservaCita}
                             onChange={handleInputChange}
