@@ -7,6 +7,7 @@ import HealingIcon from '@mui/icons-material/Healing';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -50,7 +51,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export const Navbar = () => {
+export const Navbar = ({ auth }) => {
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -62,18 +64,28 @@ export const Navbar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 1 }}
                     >
-                        CONSULTORIO
+                        <Link
+                            to='/'
+                            style={{
+                                textDecoration: 'none',
+                                color: 'white'
+                            }}
+                        >
+                            CONSULTORIO
+                        </Link>
                     </Typography>
-                    <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            sx={{ width: 300 }}
-                            placeholder="Buscar..."
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
+                    {auth&&
+                        <Search>
+                            <SearchIconWrapper>
+                                <SearchIcon />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                sx={{ width: 300 }}
+                                placeholder="Buscar..."
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
+                    }
                 </Toolbar>
             </AppBar>
         </Box>
