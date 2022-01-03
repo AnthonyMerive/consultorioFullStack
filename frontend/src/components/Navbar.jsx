@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -53,6 +54,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Navbar = ({ auth }) => {
 
+    const usuarioLogeado = useSelector(store => store.login)
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -75,16 +78,8 @@ export const Navbar = ({ auth }) => {
                         </Link>
                     </Typography>
                     {auth&&
-                        <Search>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                sx={{ width: 300 }}
-                                placeholder="Buscar..."
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </Search>
+
+                            <h3>Bienvenido, {usuarioLogeado.displayName}</h3>
                     }
                 </Toolbar>
             </AppBar>
