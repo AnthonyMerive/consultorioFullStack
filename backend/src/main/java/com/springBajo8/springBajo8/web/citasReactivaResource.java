@@ -11,6 +11,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@CrossOrigin(origins ="https://consultorio-react-spring.web.app/")
 public class citasReactivaResource {
 
     @Autowired
