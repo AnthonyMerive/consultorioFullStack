@@ -28,10 +28,6 @@ export default function App() {
         return <Loading />;
     }
 
-    console.log(auth)
-
-
-
     return (
         <div>
             <Navbar auth ={auth} />
